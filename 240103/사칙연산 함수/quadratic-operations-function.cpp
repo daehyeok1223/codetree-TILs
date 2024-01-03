@@ -29,5 +29,6 @@ int main() {
     else if(c=='/'){
         Div(a,b);
     }
+    else cout<<"False";
     return 0;
 }
