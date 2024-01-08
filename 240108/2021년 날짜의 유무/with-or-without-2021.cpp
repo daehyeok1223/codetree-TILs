@@ -11,6 +11,7 @@ void Print(int a, int b){
     else if(a==4||a==6||a==9||a==11&&b<31){
         cout<<"Yes";
     }
+    else if(a>12) cout<<"No";
     else cout<<"No";
 }
 int main() {
