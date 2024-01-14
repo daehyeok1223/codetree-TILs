@@ -8,14 +8,8 @@ void Weather(int a) {
     else if (a == 12 || a == 1 || a == 2) cout << "Winter";
 }
 bool IsYoon(int a) {
-    int condition = 0;
-    if (a % 4 == 0) condition = 1;
-    else if (a % 100 == 0) condition = 0;
-    else if (a % 400 == 0) condition = 1;
-    else condition = 0;
-    return condition == 1;
+    return (a % 4 == 0 && (a % 100 != 0 || a % 400 == 0));
 }
-
 void IsYear(int a, int b, int c) {
     if (b == 2 && c < 30 && IsYoon(a)) {
         Weather(b);
