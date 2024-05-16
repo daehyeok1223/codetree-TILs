@@ -98,7 +98,7 @@ int main(){
 
     else if (dir == 'R') {
       shiftRight(x);
-      while(x > 0){
+      while(x > 1){
         if(upexist(x)) {
           x--;
           if (dir == 'L') {
@@ -115,7 +115,7 @@ int main(){
       }
       dir = d;
       x = r;
-      while (x < N - 1) {
+      while (x < N) {
         if(downexist(x)) {
           x++;
           if (dir == 'L') {
@@ -132,6 +132,7 @@ int main(){
       }
     }
   }
+
   for (int i = 0; i < N; i++){
     for (int j = 0; j < M; j++){
       cout << arr[i][j] << " ";
