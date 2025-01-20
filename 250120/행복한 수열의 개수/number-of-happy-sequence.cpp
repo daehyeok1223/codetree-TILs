@@ -31,7 +31,7 @@ int main() {
                 }
             }
         }
-        int temp = 1;
+        int temp = 0;
         for (int k = 0; k <= 100; k++) {
             if (temp < index[k]) {
                 temp = index[k];
