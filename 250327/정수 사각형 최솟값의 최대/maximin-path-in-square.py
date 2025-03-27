@@ -2,27 +2,15 @@ n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
 # Please write your code here.
-def dfs(i, j, m):
-    global ans, v
-    if grid[i][j] <= ans:
-        return
+dp = [[0] * n for _ in range(n)]
+dp[0][0] = grid[0][0]
+for i in range(n):
+    for j in range(n):
+        if i-1 >= 0 and j-1 >= 0:
+            dp[i][j] = min(grid[i][j], max(dp[i-1][j], dp[i][j-1]))
+        elif i-1 >= 0:
+            dp[i][j] = min(grid[i][j], dp[i-1][j])
+        elif j-1 >= 0:
+            dp[i][j] = min(grid[i][j], dp[i][j-1])
 
-    if m <= v[i][j]:
-        return
-
-    m = min(m, grid[i][j])
-    if i == n-1 and j == n-1:
-        ans = max(ans, m)
-        return
-
-    if i+1 < n:
-        dfs(i+1, j, m)
-        v[i+1][j] = ans
-    if j+1 < n:
-        dfs(i, j+1, m)
-        v[i][j+1] = ans
-
-ans = 0
-v = [[-1] * n for _ in range(n)]
-dfs(0, 0, 1000000)
-print(ans)
+print(dp[n-1][n-1])
